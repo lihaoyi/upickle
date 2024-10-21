@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        java: ['8', '17']
+        java: ['11', '17']
     env:
       JAVA_OPTS: "-Xss10M"
     steps:
@@ -34,7 +34,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        java: ['8', '17']
+        java: ['11', '17']
     env:
       JAVA_OPTS: "-Xss10M"
     steps:
@@ -54,7 +54,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        java: ['8', '17']
+        java: ['11', '17']
     env:
       JAVA_OPTS: "-Xss10M"
     steps:
@@ -78,7 +78,7 @@ jobs:
       - uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
-          java-version: 8
+          java-version: 11
       - name: Check Binary Compatibility
         run: ./mill -i -k __.mimaReportBinaryIssues
 
@@ -102,7 +102,7 @@ jobs:
       - uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
-          java-version: 8
+          java-version: 11
       - name: Publish to Maven Central
         run: |
           if [[ $(git tag --points-at HEAD) != '' ]]; then

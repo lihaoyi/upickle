@@ -22,7 +22,7 @@ object MsgPackJvmTests extends TestSuite{
 
       // Taken from:
       // https://github.com/msgpack/msgpack-ruby/tree/a22d8268f82e0f2ae95f038285af43ce5971810e/spec
-      val resources = sys.env("MILL_TEST_RESOURCE_FOLDER")
+      val resources = sys.env("MILL_TEST_RESOURCE_DIR")
       val casesJson = resources + "/cases.json"
       val casesMsg = resources + "/cases.msg"
       val casesCompactMsg = resources + "/cases_compact.msg"
