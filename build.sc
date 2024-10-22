@@ -96,7 +96,7 @@ trait CommonPublishModule
 
   trait CommonTestModule0 extends ScalaModule with TestModule.Utest {
     def ivyDeps = {
-      Agg(ivy"com.lihaoyi::utest::0.8.3") ++
+      Agg(ivy"com.lihaoyi::utest::0.8.4") ++
       Option.when(!isScala3(scalaVersion()))(ivy"com.lihaoyi:::acyclic:$acyclic")
     }
 
