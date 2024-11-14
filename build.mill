@@ -391,26 +391,23 @@ trait BenchModule extends CommonPlatformModule{
 object upickle_named_tuples extends Module {
   // todo: replace with scala3 version when upickle moves to next LTS
   val scalaVersionWithNamedTuples = Seq("3.6.1")
-  trait CommonCoreModule extends CommonPublishModule {
-    def ivyDeps = Agg(ivy"com.lihaoyi::geny::1.1.1")
-  }
 
   object js extends Cross[CoreJsModule](scalaVersionWithNamedTuples)
-  trait CoreJsModule extends CommonJsModule with CommonCoreModule {
+  trait CoreJsModule extends CommonJsModule with upickle.core.CommonCoreModule {
     override def scalaVersion: Target[String] = scalaVersionWithNamedTuples.head
     override def moduleDeps: Seq[PublishModule] = Seq(upickle.core.js())
     object test extends CommonTestModule
   }
 
   object jvm extends Cross[CoreJvmModule](scalaVersionWithNamedTuples)
-  trait CoreJvmModule extends CommonJvmModule with CommonCoreModule{
+  trait CoreJvmModule extends CommonJvmModule with upickle.core.CommonCoreModule{
     override def scalaVersion: Target[String] = scalaVersionWithNamedTuples.head
     override def moduleDeps: Seq[PublishModule] = Seq(upickle.core.jvm())
     object test extends CommonTestModule
   }
 
   object native extends Cross[CoreNativeModule](scalaVersionWithNamedTuples)
-  trait CoreNativeModule extends CommonNativeModule with CommonCoreModule {
+  trait CoreNativeModule extends CommonNativeModule with upickle.core.CommonCoreModule {
     override def scalaVersion: Target[String] = scalaVersionWithNamedTuples.head
     object test extends CommonTestModule
   }
