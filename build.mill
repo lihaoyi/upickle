@@ -402,7 +402,8 @@ object upickle_named_tuples extends Module {
   object jvm extends Cross[CoreJvmModule](scalaVersionWithNamedTuples)
   trait CoreJvmModule extends CommonJvmModule with upickle.core.CommonCoreModule{
     override def scalaVersion: Target[String] = scalaVersionWithNamedTuples.head
-    override def moduleDeps: Seq[PublishModule] = Seq(upickle.core.jvm())
+    override def ivyDeps: Target[Agg[Dep]] = Agg(ivy"com.lihaoyi::upickle::4.0.2")
+    // override def moduleDeps = super.moduleDeps ++ Seq(upickle.implicits.jvm(scala3))
     object test extends CommonTestModule
   }
 

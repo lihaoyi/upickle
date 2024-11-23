@@ -1,7 +1,8 @@
 package upickle.nt
 
-import scala.NamedTuple.NamedTuple
 import upickle.default.*
+import scala.NamedTuple.NamedTuple
+
 import ujson.Value
 
 object NamedTupleReadWriter:
