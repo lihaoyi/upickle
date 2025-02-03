@@ -6,5 +6,5 @@ lazy val upickleReadme = scalatex.ScalatexReadme(
   url = "https://github.com/lihaoyi/upickle/tree/main",
   source = "Readme"
 ).settings(
-  scalaVersion := "2.12.18"
+  scalaVersion := "2.12.20"
 )
